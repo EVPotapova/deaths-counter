@@ -41,7 +41,10 @@ function getAllFromFirebase() {
     dbRef.once('value').then(function(snap) {
         var array =Object.keys(snap.val()) ;   
         
-        array.forEach(element => document.getElementById(element.nickName).value = element.number);
+        array.forEach((element) => {
+            console.log(element);
+            document.getElementById(element.nickName).value = element.number);
+          });
         
     });
   }
