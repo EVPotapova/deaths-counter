@@ -4,8 +4,15 @@
     <title>Untitled Page</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/scripts/counter.js"></script>
   </head>
   <body>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        getAllFromFirebase();
+      });
+    </script>
 
     <h1>1 Death - 10 exercises</h1>
 
@@ -51,7 +58,6 @@
       </div>
     </div>
 
-    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
 
@@ -71,13 +77,6 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/scripts/counter.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        getAllFromFirebase();
-      });
     </script>
   </body>
 </html>
