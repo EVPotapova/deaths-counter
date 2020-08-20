@@ -4,7 +4,7 @@ function saveToFirebase(nickName) {
 
   var counterObject = {
     nickName: nickName,
-    number: number,
+    number: value,
   };
 
   firebase
