@@ -4,7 +4,10 @@
     <title>Deaths Counter</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
@@ -12,11 +15,96 @@
       $(document).ready(function () {
         getAllFromFirebase();
 
+        //Taro
+        document
+          .getElementById("Taro_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Taro_Value");
+          });
+        document
+          .getElementById("Taro_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Taro_Value");
+          });
 
-        
-    document.getElementById("Taro_ValueUp").addEventListener ("click", function(){ValueUp('Taro_Value');});
-    document.getElementById("Taro_ValueDown").addEventListener ("click", function(){ValueDown('Taro_Value');});
+        //Samara
+        document
+          .getElementById("Samara_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Samara_Value");
+          });
+        document
+          .getElementById("Samara_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Samara_Value");
+          });
+        //Ein
+        document
+          .getElementById("Ein_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Ein_Value");
+          });
+        document
+          .getElementById("Ein_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Ein_Value");
+          });
+        //Setos
+        document
+          .getElementById("Setos_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Setos_Value");
+          });
+        document
+          .getElementById("Setos_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Setos_Value");
+          });
 
+        //Fumi
+        document
+          .getElementById("Fumi_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Fumi_Value");
+          });
+        document
+          .getElementById("Fumi_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Fumi_Value");
+          });
+        //Wasaby
+        document
+          .getElementById("Wasaby_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Wasaby_Value");
+          });
+        document
+          .getElementById("Wasaby_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Wasaby_Value");
+          });
+        //Shahid
+        document
+          .getElementById("Shahid_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Shahid_Value");
+          });
+        document
+          .getElementById("Shahid_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Shahid_Value");
+          });
+        //Shiko
+        document
+          .getElementById("Shiko_ValueUp")
+          .addEventListener("click", function () {
+            ValueUp("Shiko_Value");
+          });
+        document
+          .getElementById("Shiko_ValueDown")
+          .addEventListener("click", function () {
+            ValueDown("Shiko_Value");
+          });
       });
     </script>
 
@@ -41,8 +129,10 @@
           type="number"
           onchange="saveToFirebase('Samara_Value');"
         />
-        <button onclick="ValueUp('Samara_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Samara_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Samara_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Samara_ValueDown">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -52,8 +142,8 @@
           type="number"
           onchange="saveToFirebase('Ein_Value');"
         />
-        <button onclick="ValueUp('Ein_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Ein_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Ein_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Ein_ValueDown"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -63,8 +153,8 @@
           type="number"
           onchange="saveToFirebase('Setos_Value');"
         />
-        <button onclick="ValueUp('Setos_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Setos_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Setos_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Setos_ValueDown"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -74,8 +164,8 @@
           type="number"
           onchange="saveToFirebase('Fumi_Value');"
         />
-        <button onclick="ValueUp('Fumi_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Fumi_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Fumi_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Fumi_ValueDown"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -85,8 +175,10 @@
           type="number"
           onchange="saveToFirebase('Wasaby_Value');"
         />
-        <button onclick="ValueUp('Wasaby_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Wasaby_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Wasaby_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Wasaby_ValueDown">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -96,8 +188,10 @@
           type="number"
           onchange="saveToFirebase('Shahid_Value');"
         />
-        <button onclick="ValueUp('Shahid_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Shahid_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Shahid_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Shahid_ValueDown">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -107,8 +201,8 @@
           type="number"
           onchange="saveToFirebase('Shiko_Value');"
         />
-        <button onclick="ValueUp('Shiko_Value');"><i class="fa fa-chevron-up"></i></button>
-        <button onclick="ValueDown('Shiko_Value');"><i class="fa fa-chevron-down"></i></button>
+        <button id="Shiko_ValueUp"><i class="fa fa-chevron-up"></i></button>
+        <button id="Shiko_ValueDown"><i class="fa fa-chevron-down"></i></button>
       </div>
     </div>
 
