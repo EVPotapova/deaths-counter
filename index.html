@@ -4,6 +4,7 @@
     <title>Deaths Counter</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
@@ -15,7 +16,7 @@
 
     <h1>1 Death - 10 exercises</h1>
 
-    <div style="display: flex; flex-direction: column;">
+    <div id="main_container" style="display: flex; flex-direction: column;">
       <div style="display: flex; margin: 10px 0;">
         <strong style="width: 70px;">Taro</strong>
         <input
@@ -23,6 +24,8 @@
           type="number"
           onchange="saveToFirebase('Taro_Value');"
         />
+        <button onclick="ValueUp('Taro_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Taro_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -32,6 +35,8 @@
           type="number"
           onchange="saveToFirebase('Samara_Value');"
         />
+        <button onclick="ValueUp('Samara_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Samara_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -41,6 +46,8 @@
           type="number"
           onchange="saveToFirebase('Ein_Value');"
         />
+        <button onclick="ValueUp('Ein_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Ein_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -50,6 +57,8 @@
           type="number"
           onchange="saveToFirebase('Setos_Value');"
         />
+        <button onclick="ValueUp('Setos_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Setos_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -59,6 +68,8 @@
           type="number"
           onchange="saveToFirebase('Fumi_Value');"
         />
+        <button onclick="ValueUp('Fumi_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Fumi_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -68,6 +79,8 @@
           type="number"
           onchange="saveToFirebase('Wasaby_Value');"
         />
+        <button onclick="ValueUp('Wasaby_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Wasaby_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -77,6 +90,8 @@
           type="number"
           onchange="saveToFirebase('Shahid_Value');"
         />
+        <button onclick="ValueUp('Shahid_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Shahid_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
 
       <div style="display: flex; margin: 10px 0;">
@@ -86,6 +101,8 @@
           type="number"
           onchange="saveToFirebase('Shiko_Value');"
         />
+        <button onclick="ValueUp('Shiko_Value');"><i class="fa fa-chevron-up"></i></button>
+        <button onclick="ValueDown('Shiko_Value');"><i class="fa fa-chevron-down"></i></button>
       </div>
     </div>
 
@@ -94,7 +111,7 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
 
     <script>
       // Your web app's Firebase configuration

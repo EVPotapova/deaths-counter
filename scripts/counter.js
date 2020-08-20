@@ -1,6 +1,20 @@
 function saveToFirebase(nickName) {
   var value = document.getElementById(nickName).value;
+  commonSave(nickName, value);
+}
 
+function ValueUp(nickName){
+    
+  var value = Number.parseInt(document.getElementById(nickName).value)+1;
+  commonSave(nickName, value);
+}
+function ValueDown(nickName){
+    
+  var value = Number.parseInt(document.getElementById(nickName).value)-1;
+  commonSave(nickName, value);
+}
+
+function commonSave(nickName, value){    
   var counterObject = {
     nickName: nickName,
     number: value,
@@ -23,13 +37,11 @@ function saveToFirebase(nickName) {
           alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
         }
       );
-      getAllFromFirebase();
     },
     function (error) {
       alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
     }
   );
-
 }
 
 function getKeyByNickname(nickName) {}
