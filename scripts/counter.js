@@ -7,10 +7,11 @@ function saveToFirebase(nickName) {
     number: value,
   };
 
-  firebase
+  var dbRef = firebase
     .database()
-    .ref("deaths-count")
-    .push()
+    .ref("deaths-count");
+    
+    dbRef.push()
     .set(counterObject)
     .then(
       function (snapshot) {
