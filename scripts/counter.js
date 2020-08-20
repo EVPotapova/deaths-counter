@@ -1,50 +1,52 @@
 function saveToFirebase(nickName) {
-
-    var value = document.getElementById(nickName).value;
+  var value = document.getElementById(nickName).value;
 
   var counterObject = {
     nickName: nickName,
     number: value,
   };
+  var dbRef = firebase.database().ref("deaths-count");
 
-  var userKey = getKeyByNickname(nickName);
+  dbRef.once("value").then(
+    function (snap) {
+      var snVal = snap.val();
+      var userKey = Object.keys(snVal).find(
+        (key) => snVal[key].nickName === nickName
+      );
+      var userRef = firebase.database().ref("deaths-count/" + userKey);
 
-  var dbRef = firebase
-    .database()
-    .ref("deaths-count/"+userKey);
-    
-    dbRef
-    .set(counterObject)
-    .then(
-      function (snapshot) {
-        console.log("Changed Succesfully!");
-      },
-      function (error) {
-        alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!");
-      }
-    );
+      userRef.set(counterObject).then(
+        function (snapshot) {
+            getAllFromFirebase();
+        },
+        function (error) {
+          alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+        }
+      );
+      getAllFromFirebase();
+    },
+    function (error) {
+      alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+    }
+  );
 
-    getAllFromFirebase();
 }
 
-
-function getKeyByNickname(nickName){
-    var dbRef = firebase.database().ref("deaths-count");
-    dbRef.orderByChild("nickName").equalsTo(nickName).on("value", snap => {
-        return snap.key;
-       });
-}
+function getKeyByNickname(nickName) {}
 
 function getAllFromFirebase() {
-    var dbRef = firebase.database().ref("deaths-count");
-  
-    dbRef.once('value').then(function(snap) {
-        var array =Object.keys(snap.val()) ;   
-        
-        array.forEach((element) => {
-            console.log(element);
-            document.getElementById(element.nickName).value = element.number);
-          });
-        
-    });
-  }
+  var dbRef = firebase.database().ref("deaths-count");
+
+  dbRef.once("value").then(
+    function (snap) {
+      var array = Object.values(snap.val());
+
+      array.forEach((element) => {
+        document.getElementById(element.nickName).value = element.number;
+      });
+    },
+    function (error) {
+      alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+    }
+  );
+}
