@@ -39,7 +39,7 @@ function getAllFromFirebase() {
     var dbRef = firebase.database().ref("deaths-count");
   
     dbRef.once('value').then(function(snap) {
-        var array = snap.val();   
+        var array =Object.keys(snap.val()) ;   
         
         array.forEach(element => document.getElementById(element.nickName).value = element.number);
         
