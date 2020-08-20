@@ -7,15 +7,17 @@ function saveToFirebase(nickName) {
     number: value,
   };
 
+  var userKey = getKeyByNickname(nickName);
+
   var dbRef = firebase
     .database()
-    .ref("deaths-count");
+    .ref("deaths-count/"+userKey);
     
-    dbRef.push()
+    dbRef
     .set(counterObject)
     .then(
       function (snapshot) {
-        alert("Changed Succesfully!");
+        console.log("Changed Succesfully!");
       },
       function (error) {
         alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!");
@@ -26,10 +28,20 @@ function saveToFirebase(nickName) {
 }
 
 
+function getKeyByNickname(nickName){
+    var dbRef = firebase.database().ref("deaths-count");
+    dbRef.orderByChild("nickName").equalsTo(nickName).on("value", snap => {
+        return snap.key;
+       });
+}
+
 function getAllFromFirebase() {
     var dbRef = firebase.database().ref("deaths-count");
   
     dbRef.once('value').then(function(snap) {
-        console.log(snap.val());    
+        var array = snap.val();   
+        
+        array.forEach(element => document.getElementById(element.nickName).value = element.number);
+        
     });
   }
