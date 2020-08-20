@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Untitled Page</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script src="/scripts/counter.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        getAllFromFirebase();
+      });
+    </script>
+
+    <h1>1 Death - 10 exercises</h1>
+
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: flex;">
+        <strong>Taro</strong>
+        <input id="Taro_Value" type="number" onchange="saveToFirebase('Taro_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Samara</strong>
+        <input id="Samara_Value" type="number" onchange="saveToFirebase('Samara_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Ein</strong>
+        <input id="Ein_Value" type="number" onchange="saveToFirebase('Ein_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Setos</strong>
+        <input id="Setos_Value" type="number" onchange="saveToFirebase('Setos_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Fumi</strong>
+        <input id="Fumi_Value" type="number" onchange="saveToFirebase('Fumi_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Wasaby</strong>
+        <input id="Wasaby_Value" type="number" onchange="saveToFirebase('Wasaby_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Shahid</strong>
+        <input id="Shahid_Value" type="number" onchange="saveToFirebase('Shahid_Value');" />
+      </div>
+      
+      <div style="display: flex;">
+        <strong>Shiko</strong>
+        <input id="Shiko_Value" type="number" onchange="saveToFirebase('Shiko_Value');" />
+      </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAJM47JqsdYkvIVxHfR0-r6nuHIp-eTUaA",
+        authDomain: "deaths-counter-aa07b.firebaseapp.com",
+        databaseURL: "https://deaths-counter-aa07b.firebaseio.com",
+        projectId: "deaths-counter-aa07b",
+        storageBucket: "deaths-counter-aa07b.appspot.com",
+        messagingSenderId: "125976950408",
+        appId: "1:125976950408:web:5fc565f309a3df69fe513d",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </body>
+</html>
