@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
-  <body>
+  <body style="background-color: #222831; color: #eeeeee;">
     <script type="text/javascript">
       $(document).ready(function () {
         getAllFromFirebase();
@@ -108,106 +114,209 @@
       });
     </script>
 
-    <h1>1 Death - 10 exercises</h1>
+    <style>
+      .data-row {
+        display: flex;
+        margin: 10px 0;
+        padding: 5px;
+      }
+
+      .taro-color {
+        background-color: darkred;
+      }
+
+      .samara-color {
+        background-color: darkmagenta;
+      }
+
+      .shahid-color {
+        background-color: darkgreen;
+      }
+
+      .ein-color {
+        background-color: darkblue;
+      }
+
+      .fumi-color {
+        background-color: darkgoldenrod;
+      }
+
+      .setos-color {
+        background-color: darkviolet;
+      }
+
+      .wasaby-color {
+        background-color: darkslateblue;
+      }
+
+      .shiko-color {
+        background-color: darkcyan;
+      }
+
+      .data-label {
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .width-initial {
+        width: initial;
+      }
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+    <h1 class="m-3">1 Death - 10 exercises</h1>
 
     <div id="main_container" style="display: flex; flex-direction: column;">
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Taro</strong>
+      <div class="data-row taro-color">
+        <strong class="data-label">Taro</strong>
         <input
           id="Taro_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Taro_Value');"
         />
-        <button id="Taro_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Taro_ValueDown"><i class="fa fa-chevron-down"></i></button>
+        <button id="Taro_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Taro_ValueDown" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Samara</strong>
+      <div class="data-row samara-color">
+        <strong class="data-label">Samara</strong>
         <input
           id="Samara_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Samara_Value');"
         />
-        <button id="Samara_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Samara_ValueDown">
+        <button id="Samara_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Samara_ValueDown" class="btn btn-light ml-1">
           <i class="fa fa-chevron-down"></i>
         </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Ein</strong>
+      <div class="data-row ein-color">
+        <strong class="data-label">Ein</strong>
         <input
           id="Ein_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Ein_Value');"
         />
-        <button id="Ein_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Ein_ValueDown"><i class="fa fa-chevron-down"></i></button>
+        <button id="Ein_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Ein_ValueDown" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Setos</strong>
+      <div class="data-row setos-color">
+        <strong class="data-label">Setos</strong>
         <input
           id="Setos_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Setos_Value');"
         />
-        <button id="Setos_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Setos_ValueDown"><i class="fa fa-chevron-down"></i></button>
+        <button id="Setos_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Setos_ValueDown" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Fumi</strong>
+      <div class="data-row fumi-color">
+        <strong class="data-label">Fumi</strong>
         <input
           id="Fumi_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Fumi_Value');"
         />
-        <button id="Fumi_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Fumi_ValueDown"><i class="fa fa-chevron-down"></i></button>
+        <button id="Fumi_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Fumi_ValueDown" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Wasaby</strong>
+      <div class="data-row wasaby-color">
+        <strong class="data-label">Wasaby</strong>
         <input
           id="Wasaby_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Wasaby_Value');"
         />
-        <button id="Wasaby_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Wasaby_ValueDown">
+        <button id="Wasaby_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Wasaby_ValueDown" class="btn btn-light ml-1">
           <i class="fa fa-chevron-down"></i>
         </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Shahid</strong>
+      <div class="data-row shahid-color">
+        <strong class="data-label">Shahid</strong>
         <input
           id="Shahid_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Shahid_Value');"
         />
-        <button id="Shahid_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Shahid_ValueDown">
+        <button id="Shahid_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Shahid_ValueDown" class="btn btn-light ml-1">
           <i class="fa fa-chevron-down"></i>
         </button>
       </div>
 
-      <div style="display: flex; margin: 10px 0;">
-        <strong style="width: 70px;">Shiko</strong>
+      <div class="data-row shiko-color">
+        <strong class="data-label">Shiko</strong>
         <input
           id="Shiko_Value"
           type="number"
+          class="form-control width-initial"
           onchange="saveToFirebase('Shiko_Value');"
         />
-        <button id="Shiko_ValueUp"><i class="fa fa-chevron-up"></i></button>
-        <button id="Shiko_ValueDown"><i class="fa fa-chevron-down"></i></button>
+        <button id="Shiko_ValueUp" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button id="Shiko_ValueDown" class="btn btn-light ml-1">
+          <i class="fa fa-chevron-down"></i>
+        </button>
       </div>
     </div>
 
-    
-    <ul id="log_container" style="display: flex; flex-direction: column;"></ul>
+    <ul
+      id="log_container"
+      style="
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-color: #393e46;
+        list-style: none;
+      "
+    ></ul>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
