@@ -3,18 +3,16 @@ function saveToFirebase(nickName) {
   commonSave(nickName, value);
 }
 
-function ValueUp(nickName){
-    
-  var value = Number.parseInt(document.getElementById(nickName).value)+1;
+function ValueUp(nickName) {
+  var value = Number.parseInt(document.getElementById(nickName).value) + 1;
   commonSave(nickName, value);
 }
-function ValueDown(nickName){
-    
-  var value = Number.parseInt(document.getElementById(nickName).value)-1;
+function ValueDown(nickName) {
+  var value = Number.parseInt(document.getElementById(nickName).value) - 1;
   commonSave(nickName, value);
 }
 
-function commonSave(nickName, value){    
+function commonSave(nickName, value) {
   var counterObject = {
     nickName: nickName,
     number: value,
@@ -31,10 +29,13 @@ function commonSave(nickName, value){
 
       userRef.set(counterObject).then(
         function (snapshot) {
-            getAllFromFirebase();
+          pushLog(nickName, value);
+          getAllFromFirebase();
         },
         function (error) {
-          alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+          alert(
+            "Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error
+          );
         }
       );
     },
@@ -44,7 +45,27 @@ function commonSave(nickName, value){
   );
 }
 
-function getKeyByNickname(nickName) {}
+function pushLog(nickName, value) {
+  var logRef = firebase.database().ref("log-changes");
+
+  var logMessage = {
+    date: new Date().toUTCString(),
+    message:
+      nickName.replace("_Value", "") +
+      "'s counter has been changed to " +
+      value,
+  };
+
+  logRef
+    .push()
+    .set(logMessage)
+    .then(
+      function (snapshot) {},
+      function (error) {
+        alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+      }
+    );
+}
 
 function getAllFromFirebase() {
   var dbRef = firebase.database().ref("deaths-count");
@@ -56,6 +77,30 @@ function getAllFromFirebase() {
       array.forEach((element) => {
         document.getElementById(element.nickName).value = element.number;
       });
+    },
+    function (error) {
+      alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
+    }
+  );
+
+  var ulLog = document.getElementById("log_container");
+  var logRef = firebase.database().ref("log-changes");
+
+  logRef.once("value").then(
+    function (snap) {
+      if (snap.val()) {
+        ulLog.innerHTML = "";
+        var array = Object.values(snap.val());
+
+        array.forEach((element) => {
+          ulLog.innerHTML +=
+            "<li><strong>" +
+            element.date +
+            " - </strong>" +
+            element.message +
+            "</li>";
+        });
+      }
     },
     function (error) {
       alert("Oops, something goes wrong. Call Samara IMMEDIATELY!!!" + error);
