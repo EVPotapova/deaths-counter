@@ -92,7 +92,14 @@ function getAllFromFirebase() {
         ulLog.innerHTML = "";
         var array = Object.values(snap.val());
 
-        array.forEach((element) => {
+        array.sort(function(a,b){
+          // Turn your strings into dates, and then subtract them
+          // to get a value that is either negative, positive, or zero.
+          return new Date(b.date) - new Date(a.date);
+        });
+
+
+        array.slice(0, 21).forEach((element) => {
           ulLog.innerHTML +=
             "<li><strong>" +
             element.date +
